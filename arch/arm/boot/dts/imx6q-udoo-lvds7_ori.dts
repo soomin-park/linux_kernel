@@ -33,11 +33,11 @@
 	mxcfb1: fb@0 {
 		compatible = "fsl,mxc_sdc_fb";
 		disp_dev = "ldb";
-		interface_pix_fmt = "RGB24";
-		mode_str ="1024x600";
+		interface_pix_fmt = "RGB666";
+		mode_str ="800x480";
 		default_bpp = <32>;
 		int_clk = <0>;
-		late_init = <1>;
+		late_init = <0>;
 		status = "okay";
 	};
 };
@@ -46,19 +46,19 @@
 	status = "okay";
 	lvds-channel@0 {     
 		status = "okay";
-		fsl,data-width = <24>;
+		fsl,data-width = <18>;
 		display-timings {
-			native-mode = <&timing1>;
-			timing1: 1024x600 {
-				clock-frequency = <76000000>;
-				hactive = <1024>;
-				vactive = <600>;
-				hback-porch = <140>;
-				hfront-porch = <150>;
-				vback-porch = <121>;
-				vfront-porch = <119>;
-				hsync-len = <160>;
-				vsync-len = <50>;
+			native-mode = <&timing0>;
+			timing0: 800x480 {
+				clock-frequency = <33660000>;
+				hactive = <800>;
+				vactive = <480>;
+				hback-porch = <56>;
+				hfront-porch = <50>;
+				vback-porch = <23>;
+				vfront-porch = <20>;
+				hsync-len = <150>;
+				vsync-len = <2>;
 			};
 		};
 	};

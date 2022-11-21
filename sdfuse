@@ -1,0 +1,9 @@
+
+
+BOOT_PARTITION=../tmsdcard/boot
+ROOT_PARTITION=../tmsdcard/rootfs
+
+cp arch/arm/boot/zImage $BOOT_PARTITION
+cp arch/arm/boot/dts/imx6q-udoo-hdmi.dtb $BOOT_PARTITION/dts
+cp -r $BOOT_PARTITION/dts $BOOT_PARTITION/dts-overlay
+ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make firmware_install modules_install INSTALL_MOD_PATH=$ROOT_PARTITION
